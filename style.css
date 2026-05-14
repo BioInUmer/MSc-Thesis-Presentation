@@ -10,7 +10,8 @@
     --bg: #FFFFFF;
     --ink: #11111b;
     --ink-light: #4b4b55;
-    --ink-faint: #d1d1d6;
+    --ink-caption: #686872;
+    --ink-faint: #c6c6d2;
 
     /* Color-blind friendly palette (Okabe-Ito inspired) */
     --accent: #0072B2;
@@ -273,6 +274,19 @@ body {
     align-items: flex-start;
 }
 
+/* Unique horizontal scale-in animation for section dividers */
+.layout-section .reveal {
+    opacity: 0;
+    transform: translateX(-40px) scale(0.95);
+    transform-origin: left center;
+    transition: opacity .8s ease, transform .8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.slide.layout-section.active .reveal {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
 .layout-section .deco-circle {
     width: 55%;
     aspect-ratio: 1;
@@ -400,7 +414,7 @@ body {
 .fig-placeholder {
     font-family: var(--mono);
     font-size: 12px;
-    color: var(--ink-faint);
+    color: var(--ink-caption);
     letter-spacing: .1em;
     text-transform: uppercase;
 }
@@ -418,9 +432,14 @@ body {
 .fig-caption {
     font-family: var(--mono);
     font-size: 11px;
-    color: var(--ink-faint);
-    margin-top: .8em;
-    letter-spacing: .05em;
+    color: var(--ink-caption);
+    margin-top: 2em;
+    line-height: 0.1;
+}
+
+.fig-caption strong {
+    font-weight: 600;
+    color: var(--ink-light);
 }
 
 .fig-content-side {
@@ -446,7 +465,6 @@ body {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    margin-bottom: 3%;
 }
 
 .bigfig-box .fig-grid {
@@ -462,8 +480,14 @@ body {
 .bigfig-caption {
     font-family: var(--mono);
     font-size: 11px;
-    color: var(--ink-faint);
-    letter-spacing: .05em;
+    color: var(--ink-caption);
+    margin-top: 2em;
+    line-height: 0.1;
+}
+
+.bigfig-caption strong {
+    font-weight: 600;
+    color: var(--ink-light);
 }
 
 /* ═════════════════════════════════
