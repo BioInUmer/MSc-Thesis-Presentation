@@ -16,7 +16,7 @@
     /* Color-blind friendly palette (Okabe-Ito inspired) */
     --accent: #0072B2;
     --accent-warm: #D55E00;
-    --progress-bar: #3385ff;
+    --progress-bar: #e56062;
     --rule: #ececf0;
 
     --serif: 'Cormorant Garamond', Georgia, serif;
@@ -34,6 +34,7 @@ body {
     justify-content: center;
     font-family: var(--sans);
     overflow: hidden;
+    touch-action: none;
 }
 
 /* ── Deck wrapper ── */
@@ -58,6 +59,10 @@ body {
     overflow: hidden;
 }
 
+.deck {
+    touch-action: none;
+}
+
 .slide.active {
     opacity: 1;
     pointer-events: all;
@@ -70,15 +75,39 @@ body {
     transition: opacity .4s ease, transform .4s ease;
 }
 
+/* Layout-specific exit animations */
+.slide.layout-section.exit {
+    transform: translateX(-30px);
+}
+
+.slide.layout-figure.exit {
+    transform: scale(0.98) translateY(-10px);
+}
+
+.slide.layout-bigfig.exit {
+    transform: scale(0.98) translateY(-10px);
+}
+
+.slide.layout-cols.exit {
+    transform: translateY(-8px);
+    transition: opacity .5s ease, transform .5s ease;
+}
+
+.slide.layout-closing.exit {
+    transform: translateY(-8px);
+    transition: opacity .5s ease, transform .5s ease;
+}
+
 /* ── Global Progress Bar ── */
 #progress-container {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
+    height: 3.5px;
     background: var(--rule);
     z-index: 100;
+    transition: opacity 0.4s ease;
 }
 
 #progress-bar {
@@ -88,14 +117,58 @@ body {
     transition: width 0.35s ease;
 }
 
-#progress-text {
+/* ── Number-flow slide counter ── */
+#slide-counter {
     position: absolute;
-    top: 14px;
+    bottom: 14px;
     right: 28px;
     font-family: var(--mono);
-    font-size: 13px;
-    color: var(--ink-faint);
+    font-size: 14px;
+    color: #bcc1da;
     letter-spacing: .05em;
+    z-index: 100;
+    font-variant-numeric: tabular-nums;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    line-height: 1;
+}
+
+/* Each digit slot is a masked window showing one character */
+.counter-digit {
+    display: inline-block;
+    height: 1.2em;
+    overflow: hidden;
+    position: relative;
+    /* Width adapts to content but stays stable with tabular nums */
+    width: 0.7em;
+}
+
+/* The vertical strip that holds digits 0–9 stacked */
+.counter-digit-inner {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+
+/* Individual digit character within the strip */
+.counter-digit-inner span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.2em;
+    width: 0.7em;
+}
+
+/* Accessibility: disable rolling animation for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .counter-digit-inner {
+        transition: none !important;
+    }
 }
 
 /* ── Bottom bar ── */
@@ -193,6 +266,21 @@ body {
     pointer-events: none;
 }
 
+.hero-image {
+    position: absolute;
+    right: -12%;
+    top: 35%;
+    height: 190%;
+    transform: translateY(-50%) rotate(-5deg);
+    opacity: 0.9;
+    mix-blend-mode: normal;
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(0.3px) grayscale(4%);
+    -webkit-mask-image: linear-gradient(to right, rgba(255, 255, 255, 0.07) 20%, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 1) 80%);
+    mask-image: linear-gradient(to right, rgba(255, 255, 255, 0.07) 20%, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 1) 80%);
+}
+
 .title-content {
     position: relative;
     z-index: 2;
@@ -222,7 +310,7 @@ body {
 
 .title-main {
     font-family: var(--serif);
-    font-weight: 300;
+    font-weight: 400;
     font-size: clamp(42px, 6vw, 76px);
     line-height: 1.1;
     letter-spacing: -0.01em;
@@ -233,7 +321,7 @@ body {
 .title-main em {
     font-style: italic;
     color: var(--accent);
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .title-meta {
@@ -422,19 +510,16 @@ body {
 .fig-grid {
     position: absolute;
     inset: 0;
-    background-image:
-        linear-gradient(var(--rule) 1px, transparent 1px),
-        linear-gradient(90deg, var(--rule) 1px, transparent 1px);
     background-size: 20% 20%;
-    opacity: .5;
+    opacity: 0.9;
 }
 
 .fig-caption {
     font-family: var(--mono);
     font-size: 11px;
     color: var(--ink-caption);
-    margin-top: 2em;
-    line-height: 0.1;
+    margin-top: 1.5em;
+    line-height: 1.4;
 }
 
 .fig-caption strong {
@@ -470,19 +555,16 @@ body {
 .bigfig-box .fig-grid {
     position: absolute;
     inset: 0;
-    background-image:
-        linear-gradient(var(--rule) 1px, transparent 1px),
-        linear-gradient(90deg, var(--rule) 1px, transparent 1px);
     background-size: 10% 10%;
-    opacity: .4;
+    opacity: 0.9;
 }
 
 .bigfig-caption {
     font-family: var(--mono);
     font-size: 11px;
     color: var(--ink-caption);
-    margin-top: 2em;
-    line-height: 0.1;
+    margin-top: 1.5em;
+    line-height: 1.4;
 }
 
 .bigfig-caption strong {
@@ -727,9 +809,9 @@ hr.thin {
 
 #ban-num {
     font-family: var(--mono);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 400;
-    color: var(--accent);
+    color: var(--accent-warm);
     letter-spacing: .05em;
 }
 
@@ -741,7 +823,7 @@ hr.thin {
 
 #ban-label {
     font-family: var(--mono);
-    font-size: 12px;
+    font-size: 11px;
     color: var(--ink-faint);
     letter-spacing: .1em;
     text-transform: uppercase;
@@ -786,22 +868,22 @@ hr.thin {
 }
 
 /* ═════════════════════════════════
-   LAYOUT: THANK YOU SLIDE
+   LAYOUT: CLOSING SLIDE
    ═════════════════════════════════ */
-.layout-thankyou {
+.layout-closing {
     justify-content: center;
     align-items: center;
     text-align: center;
     padding-left: 0;
 }
 
-.layout-thankyou .title-content {
+.layout-closing .title-content {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.layout-thankyou .eyebrow-wrapper {
+.layout-closing .eyebrow-wrapper {
     justify-content: center;
 }
 
@@ -829,9 +911,37 @@ hr.thin {
     height: 72px;
     object-fit: contain;
     filter: grayscale(100%) opacity(0.8);
-    transition: filter 0.4s ease;
+    transition: filter 0.8s ease;
 }
 
 .inst-logo:hover {
     filter: grayscale(0%) opacity(1);
+}
+
+/* ═════════════════════════════════
+   ACCESSIBILITY: Reduced motion
+   ═════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+
+    .slide,
+    .reveal,
+    .deco-circle,
+    .slide-meta span,
+    #progress-bar,
+    #section-banner,
+    .inst-logo,
+    .takeaway::before {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .slide {
+        transform: none !important;
+    }
+
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
 }
