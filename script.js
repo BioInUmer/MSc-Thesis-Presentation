@@ -52,8 +52,6 @@ let current = 0;
 let revealStep = 0;
 let flyTimeout = null;
 
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
 // ── Progress bar ─────────────────────────────────────
 function updateProgress() {
     const hiddenSlidesOffset = 1; // Change this to 3 if you want it to start at slide 3
@@ -298,7 +296,7 @@ function isPipePairSlide(slide) {
     return slide.classList.contains('layout-pipe-pair');
 }
 
-const PIPE_CROSSFADE_MS = prefersReducedMotion ? 0 : 380;
+const PIPE_CROSSFADE_MS = 380;
 
 function usesCrossfadeTransition(exited, entering) {
     return isPipePairSlide(exited) || isPipePairSlide(entering);

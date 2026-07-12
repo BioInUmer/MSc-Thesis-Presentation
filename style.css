@@ -185,13 +185,6 @@ body {
     width: 0.7em;
 }
 
-/* Accessibility: disable rolling animation for reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    .counter-digit-inner {
-        transition: none !important;
-    }
-}
-
 /* ── Bottom bar ── */
 .slide-meta {
     position: absolute;
@@ -3035,35 +3028,4 @@ ul.gwas-bullets-grid li.reveal-step.revealed {
 .layout-future-work .reveal-step.revealed {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* ═════════════════════════════════
-   ACCESSIBILITY: Reduced motion
-   ═════════════════════════════════ */
-@media (prefers-reduced-motion: reduce) {
-
-    .slide,
-    .slide.exit-crossfade,
-    .slide.active.enter-crossfade,
-    .layout-pipe-pair,
-    .reveal,
-    .deco-circle,
-    .slide-meta span,
-    #progress-bar,
-    #section-banner,
-    .inst-logo,
-    .takeaway::before {
-        transition: none !important;
-        animation: none !important;
-    }
-
-    .slide {
-        transform: none !important;
-    }
-
-    .reveal {
-        opacity: 1 !important;
-        transform: none !important;
-        filter: none !important;
-    }
 }
