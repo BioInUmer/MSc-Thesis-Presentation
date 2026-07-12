@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master Thesis Presentation — Multi-omic Research in AAA</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Instrument+Sans:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Libre+Baskerville:wght@400;700&family=DM+Mono:wght@300;400&family=Urbanist:wght@300;400;500;600&family=Instrument+Sans:wght@300;400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -29,548 +29,847 @@
              ╚═══════════════════════════════════╝ -->
         <div class="slide active layout-title">
             <div class="hero-bg reveal r1"></div>
-            <img src="images/Aorta-second.png" alt="Aorta" class="hero-image">
+            <img src="images/Title.png" alt="Aorta" class="hero-image">
 
             <div class="title-content">
-                <div class="meta-label reveal r2"
-                    style="color: var(--ink-faint); font-size: 12px; letter-spacing: .3em; margin-bottom: 1.5rem">
-                    <p>Bioinformatics Master's Thesis (2025/2026)</p>
+                <div class="meta-label reveal r2" style="margin-bottom: 1.5rem; font-size: 13px;">
+                    Bioinformatics Master's Thesis (2025/2026)
                 </div>
 
-                <h1 class="title-main reveal r3">
+                <h1 class="title-main reveal r3" style="margin-bottom: 2rem;">
                     <em>Multi-Omics</em> Characterization of<br>
                     Abdominal Aortic Aneurysm<br>
                     via 3D <em>Image-Derived Phenotypes</em>
                 </h1>
 
+                <div class="author-block reveal r3"
+                    style="display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem;">
+                    <div>
+                        <span class="meta-label" style="display: block; margin-bottom: 2px;">Author</span>
+                        <span
+                            style="font-size: 16px; font-weight: 300; color: var(--ink); letter-spacing: 0.02em;">Muhammad
+                            Umer Hussain Kousar</span>
+                    </div>
+                </div>
+
                 <div class="title-meta reveal r4">
                     <div class="meta-col">
-                        <span class="meta-label">Author</span>
-                        <p>Muhammad Umer Hussain Kousar</p>
-                    </div>
-                    <div class="meta-col">
-                        <span class="meta-label">Institutions</span>
-                        Universitat Autònoma de Barcelona<br>
-                        Institut de Recerca Sant Pau (CERCA)
+                        <div class="meta-bottom title-logos">
+                            <img src="images/Logo_uab.png" alt="UAB Logo" class="title-uab-logo">
+                            <img src="images/Logo_IRSP.png" alt="IRSP Logo" class="title-irsp-logo">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
 
         <!-- ╔═══════════════════════════════════╗
              ║  SECTION 1 — INTRODUCTION          ║
              ╚═══════════════════════════════════╝ -->
 
-        <!-- 1.0 Section divider -->
-        <div class="slide layout-section" data-section-num="01" data-section-label="Introduction">
+        <!-- [1] Section divider -->
+        <div class="slide layout-section" data-section-num="01" data-section-label="INTRODUCTION">
             <div class="deco-circle"></div>
-            <div class="section-num reveal r1">01</div>
-            <p class="section-label reveal r2">Introduction</p>
-            <h2 class="section-title reveal r3">
-                Disease Context &amp; Multi-omic Landscape
-            </h2>
-        </div>
-
-        <!-- 1.1 AAA disease context -->
-        <div class="slide layout-statement">
-            <div class="slide-header reveal r1">
-                <h2>AAA Disease Context</h2>
-            </div>
-            <p class="statement-text reveal r2">
-                Abdominal Aortic Aneurysm is a <em>progressive dilation</em> of
-                the abdominal aorta with high risk of asymptomatic rupture
-                and significant mortality.
-            </p>
-        </div>
-
-        <!-- 1.2 Multi-omic research -->
-        <div class="slide layout-cols">
-            <div class="slide-header reveal r1">
-                <h2>Multi-omic Research in AAA</h2>
-            </div>
-            <div class="cols">
-                <div class="col-block reveal r2">
-                    <div class="col-num">01.</div>
-                    <div class="col-divider"></div>
-                    <h3>Genomics</h3>
-                    <p>Genome-wide approaches to identify common and rare variants associated with AAA susceptibility
-                        and progression.</p>
-                </div>
-                <div class="col-block reveal r3">
-                    <div class="col-num">02.</div>
-                    <div class="col-divider"></div>
-                    <h3>Transcriptomics &amp; Proteomics</h3>
-                    <p>Functional molecular profiling to map gene expression and protein-level alterations in vascular
-                        tissues.</p>
-                </div>
+            <div class="section-heading">
+                <div class="section-num reveal r1">01</div>
+                <h2 class="section-title reveal r2">INTRODUCTION</h2>
             </div>
         </div>
 
-        <!-- 1.3 Rationale for 3D phenotypes -->
-        <div class="slide layout-figure">
+        <!-- [2] The Artery Aorta -->
+        <div class="slide layout-figure layout-figure--fit">
             <div class="fig-side reveal r1">
-                <div class="fig-box">
-                    <div class="fig-grid"></div>
-                    <span class="fig-placeholder">3D CT-Scan Rendering</span>
+                <div class="fig-media">
+                    <img src="images/01-Healthy-Aorta.png"
+                        alt="Frontal view of the entire aorta, illustrating a healthy vessel"
+                        class="fig-image fig-image--natural">
                 </div>
-                <p class="fig-caption"><strong>Figure 1</strong> | <strong>3D CT-Scan Rendering.</strong> 3D
-                    reconstruction from CT-Scan aortic segmentation</p>
+                <p class="fig-caption"><strong>Fig. 1</strong> | <strong>The Aorta.</strong> Frontal view of the entire
+                    aorta, illustrating a healthy vessel.</p>
             </div>
             <div class="fig-content-side">
                 <div class="slide-header reveal r2">
-                    <h2>Rationale for 3D Phenotypes</h2>
+                    <h2>The Artery Aorta</h2>
                 </div>
-                <p class="reveal r3" style="font-size:14px;color:var(--ink-light);line-height:1.9;">
-                    Standard AAA assessment relies on maximum diameter alone.
-                    3D image-derived phenotypes from CT-Scans capture
-                    morphological and biomechanical complexity beyond
-                    traditional 2D measurements.
+                <ul class="fig-bullets reveal r3">
+                    <li>Largest blood vessel in the human body</li>
+                    <li>Supplies oxygenated blood to all major tissues</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- [3] Pipe Analogy — pair 1 (02 → 03) -->
+        <div class="slide layout-pipe-pair">
+            <div class="pipe-pair">
+                <div class="pipe-cell reveal-step" data-step="1">
+                    <img src="images/02-plumber.png" alt="Pipe bulge discovered in basement" decoding="async">
+                </div>
+                <div class="pipe-cell reveal-step" data-step="2">
+                    <img src="images/03-plumber.png" alt="Homeowner calls for help" decoding="async">
+                </div>
+            </div>
+        </div>
+
+        <!-- [4] Pipe Analogy — pair 2 (04 → 05) -->
+        <div class="slide layout-pipe-pair">
+            <div class="pipe-pair">
+                <div class="pipe-cell reveal-step" data-step="1">
+                    <img src="images/04-plumber.png" alt="Plumber measures the bulge" decoding="async">
+                </div>
+                <div class="pipe-cell reveal-step" data-step="2">
+                    <img src="images/05-plumber.png" alt="Plumber explains progression over time" decoding="async">
+                </div>
+            </div>
+        </div>
+
+        <!-- [5] Abdominal Aortic Aneurysm (AAA) -->
+        <div class="slide layout-aaa-stack">
+            <div class="slide-header reveal r1">
+                <h2>Abdominal Aortic Aneurysm (AAA)</h2>
+            </div>
+            <div class="aaa-body">
+                <div class="aaa-figures-wrap">
+                    <div class="aaa-figures">
+                        <div class="aaa-fig-cell reveal-step" data-step="2">
+                            <img src="images/01-Healthy-Aorta.png"
+                                alt="Frontal view of the entire aorta, illustrating a healthy vessel"
+                                class="aaa-fig-image">
+                        </div>
+                        <div class="aaa-fig-cell reveal-step" data-step="2">
+                            <img src="images/06-AAA-aorta.png"
+                                alt="Frontal view of the entire aorta, illustrating an abdominal aneurysm"
+                                class="aaa-fig-image">
+                            <p class="fig-caption aaa-caption"><strong>Fig. 2</strong> |
+                                <strong>AAA.</strong> Frontal view of the entire aorta, illustrating an aneurysm in the
+                                abdominal region.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="fig-bullets aaa-bullets reveal-step" data-step="3">
+                    <li><span class="text-accent">4–9%</span> men &amp; <span class="text-accent">1–2%</span> women over
+                        65 years old.</li>
+                    <li>Asymptomatic until rupture → lethal</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- [6] Abdominal Aortic Diameter (AAD) -->
+        <div class="slide layout-aad">
+            <div class="slide-header reveal r1">
+                <h2>Abdominal Aortic Diameter (AAD)</h2>
+            </div>
+            <div class="aad-panel">
+                <div class="aad-diagnostics reveal-step" data-step="1">
+                    <img src="images/07-diameter.png" alt="CT scan and ultrasound for AAA diagnosis">
+                </div>
+                <ul class="aad-criteria fig-bullets reveal-step" data-step="2">
+                    <li><strong>Aneurysm:</strong> AAD &gt; <span class="text-accent">30 mm</span></li>
+                    <li><strong>Surgery:</strong> AAD &gt; <span class="text-accent">50 mm</span> (women) / <span
+                            class="text-accent">55 mm</span> (men)</li>
+                </ul>
+                <div class="fig-stack aad-fig aad-fig--surgery reveal-step" data-step="2">
+                    <img src="images/09-Surgery.png" alt="Surgical repair of abdominal aortic aneurysm">
+                    <p class="fig-caption"><strong>Fig. 4</strong> | <strong>Open surgical procedure.</strong> For
+                        patients with
+                        increased abdominal aortic diameter.</p>
+                </div>
+                <div class="fig-stack aad-fig aad-fig--aad reveal-step" data-step="1">
+                    <img src="images/08-diameter.png" alt="Maximum aortic diameter measurement on CT scan">
+                    <p class="fig-caption"><strong>Fig. 3</strong> | <strong>Abdominal aortic diameter.</strong> As seen
+                        on a CT scan.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- [7] Imaging Phenotypes -->
+        <div class="slide layout-phenotypes">
+            <div class="phenotypes-wrap">
+                <div class="fig-stack phenotypes-stack reveal r1">
+                    <div class="phenotypes-title reveal r2">
+                        <h2>Imaging Phenotypes</h2>
+                    </div>
+                    <figure class="phenotypes-figure">
+                        <img src="images/10-AAA-morphology.png"
+                            alt="AAA morphology showing abdominal aortic diameter, calcification, and intraluminal thrombus">
+                    </figure>
+                    <p class="fig-caption reveal r3"><strong>Fig. 5</strong> |
+                        <strong>AAA morphology.</strong> <strong>(A)</strong> Frontal view of an abdominal aortic
+                        aneurysm. <strong>(B)</strong> Cross-sectional schematic of the abdominal aorta highlighting the
+                        three imaging phenotypes: AAD, AAC, and ILT. <strong>(C)</strong> Axial view of CT image
+                        showing the corresponding phenotypes.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- [7] Why Omics? -->
+        <div class="slide layout-statement layout-genetics">
+            <div class="slide-header reveal r1">
+                <h2>Why Omics?</h2>
+            </div>
+            <div class="genetics-notes reveal r2">
+                <div class="genetics-row">
+                    <div class="genetics-block">
+                        <span class="meta-label">AAA</span>
+                        <p class="genetics-line">
+                            <span class="text-accent">70–80%</span> genetic<br>
+                            <span class="text-accent">20–30%</span> environmental
+                        </p>
+                    </div>
+                    <div class="genetics-block">
+                        <span class="meta-label">Healthy individuals</span>
+                        <ul class="genetics-metrics">
+                            <li><span>Diameter</span> <strong class="text-accent">34%</strong></li>
+                            <li><span>Calcification</span> <strong class="text-accent">49%</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- [8] Knowledge Gap -->
+        <div class="slide layout-statement layout-knowledge-gap">
+            <div class="slide-header reveal r1">
+                <h2>Knowledge Gap</h2>
+            </div>
+            <div class="knowledge-gap-panel">
+                <div class="kg-item reveal r2">
+                    <div class="kg-pillar">
+                        <span class="kg-num">01.</span>
+                        <span class="kg-divider"></span>
+                        <span class="kg-label">Case–Control Focus</span>
+                    </div>
+                    <p class="kg-question">What are the genetics behind disease-specific traits?</p>
+                </div>
+                <div class="kg-item reveal r3">
+                    <div class="kg-pillar">
+                        <span class="kg-num">02.</span>
+                        <span class="kg-divider"></span>
+                        <span class="kg-label">General Population</span>
+                    </div>
+                    <p class="kg-question">What happens after AAA onset?</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- [9] Objective & Hypothesis -->
+        <div class="slide layout-quotes">
+            <div class="quotes-panel">
+                <figure class="quote-block reveal-step" data-step="1">
+                    <div class="slide-header">
+                        <h2>Objective</h2>
+                    </div>
+                    <blockquote class="quote-text">
+                        To investigate the genetic factors underlying post-diagnosis AAA pathology through multi-omics
+                        analyses of imaging phenotypes (diameter, calcification, thrombus).
+                    </blockquote>
+                </figure>
+                <div class="quote-divider reveal-step" data-step="2" aria-hidden="true"></div>
+                <figure class="quote-block reveal-step" data-step="2">
+                    <div class="slide-header">
+                        <h2>Hypothesis</h2>
+                    </div>
+                    <blockquote class="quote-text">
+                        Disease-specific traits have distinct genetic architectures that differ from those affecting
+                        normal size, and each trait may involve different biological mechanisms related to the
+                        disease.
+                    </blockquote>
+                </figure>
+            </div>
+        </div>
+
+        <!-- ╔═══════════════════════════════════╗
+             ║  SECTION 2 — METHODS               ║
+             ╚═══════════════════════════════════╝ -->
+
+        <!-- [11] Section divider -->
+        <div class="slide layout-section" data-section-num="02" data-section-label="METHODS">
+            <div class="deco-circle"></div>
+            <div class="section-heading">
+                <div class="section-num reveal r1">02</div>
+                <h2 class="section-title reveal r2">METHODS</h2>
+            </div>
+        </div>
+
+        <!-- [12] Samples -->
+        <div class="slide layout-cols layout-samples">
+            <div class="slide-header reveal r1">
+                <h2>Samples</h2>
+            </div>
+            <div class="samples-body">
+                <div class="cols">
+                    <div class="col-block reveal r2">
+                        <span class="col-n">N = 518</span>
+                        <h3>AAA Patients (TABS)</h3>
+                        <ul class="col-bullets">
+                            <li>Longitudinal study</li>
+                            <li>CT images</li>
+                            <li>Genetic data</li>
+                        </ul>
+                    </div>
+                    <div class="col-block reveal r3">
+                        <span class="col-n">N = 387</span>
+                        <h3>Healthy Individuals (TAGA)</h3>
+                        <ul class="col-bullets">
+                            <li>Family study</li>
+                            <li>Diameter</li>
+                            <li>Genetic data</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="samples-logos reveal r4">
+                    <img src="images/11-logo-Mar.png" alt="Hospital del Mar Barcelona" class="samples-logo">
+                    <img src="images/12-logo-SantPau.png" alt="Sant Pau" class="samples-logo">
+                </div>
+            </div>
+        </div>
+
+        <!-- [13] Imaging Phenotypes Extraction -->
+        <div class="slide layout-figure layout-figure--fit layout-ct-extraction">
+            <div class="fig-side reveal r1">
+                <div class="fig-media">
+                    <img src="images/13-CT-all.png"
+                        alt="CT scan views, segmented regions, and 3D reconstruction of abdominal aortic aneurysm"
+                        class="fig-image fig-image--natural">
+                </div>
+                <p class="fig-caption"><strong>Fig. 6</strong> | <strong>AAC and ILT extraction.</strong>
+                    <strong>(A)</strong> Coronal, axial, and sagittal views of an AAA CT scan. <strong>(B)</strong>
+                    Segmented regions classified as lumen, ILT, and calcium; red arrows indicate calcium.
+                    <strong>(C)</strong> 3D reconstruction of the abdominal aorta showing the aneurysm and
+                    class-specific segmentations.
+                </p>
+            </div>
+            <div class="fig-content-side">
+                <div class="slide-header reveal r2">
+                    <h2>Imaging Phenotypes Extraction</h2>
+                </div>
+                <ul class="fig-bullets reveal r3">
+                    <li>Supervised Machine-learning model</li>
+                    <li>Three-dimensional Volumes</li>
+                    <li>Time-efficient</li>
+                    <li>Reproducible</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- [14] Genotype Imputation — schematic -->
+        <div class="slide layout-imputation-fig">
+            <div class="slide-header reveal r1">
+                <h2>Genotype Imputation</h2>
+            </div>
+            <figure class="imputation-single reveal r2">
+                <img src="images/14-Imputation.png"
+                    alt="Schematic of genotype imputation from sparse variants to genome-wide coverage"
+                    class="imputation-single-image">
+                <figcaption class="fig-caption"><strong>Fig. 7</strong> | <strong>Overview of Genotype
+                        Imputation.</strong> Following quality control of microarray genotypes (~700k variants),
+                    ~500k variants are imputed using a large reference panel and linkage disequilibrium patterns,
+                    obtaining ~40 million imputed variants.</figcaption>
+            </figure>
+        </div>
+
+        <!-- [15] Genotype Imputation — pipeline -->
+        <div class="slide layout-imputation-full">
+            <div class="imputation-full-frame reveal r1">
+                <img src="images/15-GG-impute.png" alt="GG-Impute genotype imputation pipeline for GWAS"
+                    class="imputation-full-image">
+                <p class="fig-caption imputation-full-caption"><strong>Fig. 8</strong> | <strong>GG-Impute.</strong>
+                    Screenshot of the genotype imputation pipeline documentation home page. See:
+                    <a href="https://bioinumer.github.io/GG-Impute/" target="_blank"
+                        rel="noopener noreferrer">https://bioinumer.github.io/GG-Impute/</a>
                 </p>
             </div>
         </div>
 
+        <!-- [16] Genome-Wide Association Studies (GWAS) -->
+        <div class="slide layout-gwas-linear">
+            <div class="slide-header reveal r1">
+                <h2>Genome-Wide Association Studies (GWAS)</h2>
+            </div>
 
-        <!-- ╔═══════════════════════════════════╗
-             ║  SECTION 2 — OBJECTIVES             ║
-             ╚═══════════════════════════════════╝ -->
+            <div class="gwas-images-wrap reveal r2">
+                <div class="gwas-image-container">
+                    <img src="images/16-GWAS-linear-regression.png" alt="GWAS Linear Regression"
+                        class="gwas-image-1 reveal-step hidden-by-step" data-step="1">
+                    <img src="images/17-GWAS-linear-regression.png" alt="GWAS Linear Regression Highlighted"
+                        class="gwas-image-2 reveal-step" data-step="2">
+                </div>
+            </div>
 
-        <!-- 2.0 Section divider -->
-        <div class="slide layout-section" data-section-num="02" data-section-label="Objectives">
-            <div class="deco-circle"></div>
-            <div class="section-num reveal r1">02</div>
-            <p class="section-label reveal r2">Objectives</p>
-            <h2 class="section-title reveal r3">
-                Research Goals
-            </h2>
+            <ul class="fig-bullets gwas-bullets-grid">
+                <li class="reveal-step" data-step="2"><strong>Association?</strong> Effect</li>
+                <li class="reveal-step" data-step="2"><strong>Significance?</strong> P-value</li>
+                <li class="reveal-step" data-step="2"><strong>Statistically Significant?</strong> Bonferroni (P <
+                        5×10<sup>-8</sup>)</li>
+                <li class="reveal-step" data-step="3"><strong>Diameter:</strong> Healthy</li>
+                <li class="reveal-step no-bullet" data-step="3">AAA Patients</li>
+                <li class="reveal-step no-bullet" data-step="3">Meta-Analysis</li>
+            </ul>
         </div>
 
-        <!-- 2.1 General objective -->
-        <div class="slide layout-statement">
-            <div class="slide-header reveal r1">
-                <h2>General Objective</h2>
+        <!-- [17] Transcriptome-Wide Association Studies (TWAS) -->
+        <div class="slide layout-figure layout-figure--fit layout-twas-fig">
+            <div class="fig-side reveal r1">
+                <div class="fig-media">
+                    <img src="images/18-TWAS.png" alt="GTEx TWAS illustration and approach"
+                        class="fig-image fig-image--natural">
+                </div>
+                <p class="fig-caption"><strong>Fig. 9</strong> | <strong>GTEx TWAS.</strong> <strong>(A)</strong>
+                    Illustration of all tissues available in GTEx v8, with sample numbers indicated in parentheses.
+                    Aorta and Whole Blood are highlighted. <strong>(B)</strong> Schematic of the TWAS approach, where
+                    GWAS variants are leveraged to predict gene expression based on the GTEX reference catalog. Adapted
+                    from the <a href="https://www.science.org/doi/10.1126/science.aaz1776" target="_blank"
+                        rel="noopener noreferrer">GTEx Consortium</a> atlas.
+                </p>
             </div>
-            <p class="statement-text reveal r2">
-                To identify <em>novel genetic variants and molecular pathways</em>
-                associated with AAA by integrating genomic data with
-                3D image-derived morphological phenotypes.
-            </p>
-        </div>
-
-        <!-- 2.2 Specific aims -->
-        <div class="slide layout-bullets">
-            <div class="slide-header reveal r1">
-                <h2>Specific Aims</h2>
-            </div>
-            <div class="content">
-                <ul class="method-list">
-                    <li class="reveal r2">
-                        <span class="m-num">01</span>
-                        <div class="m-text">
-                            <h4>Pipeline Establishment</h4>
-                            <p>Develop and validate a QC pipeline for TOPMed genotyping and imputation.</p>
-                        </div>
-                    </li>
-                    <li class="reveal r3">
-                        <span class="m-num">02</span>
-                        <div class="m-text">
-                            <h4>Phenotype Extraction</h4>
-                            <p>Extract and harmonize clinical data and 3D CT-Scan derived imaging phenotypes.</p>
-                        </div>
-                    </li>
-                    <li class="reveal r4">
-                        <span class="m-num">03</span>
-                        <div class="m-text">
-                            <h4>Association Studies</h4>
-                            <p>Execute GWAS for aortic diameter and novel 3D image-derived phenotypes.</p>
-                        </div>
-                    </li>
-                    <li class="reveal r5">
-                        <span class="m-num">04</span>
-                        <div class="m-text">
-                            <h4>Multi-omic Integration</h4>
-                            <p>Conduct TWAS to map functional molecular signatures downstream of GWAS.</p>
-                        </div>
+            <div class="fig-content-side">
+                <div class="slide-header reveal r2">
+                    <h2>Transcriptome-Wide Association Studies (TWAS)</h2>
+                </div>
+                <ul class="fig-bullets reveal r3">
+                    <li>Is the predicted expression of a gene associated with <span class="text-accent">Diameter</span>,
+                        <span class="text-accent">Calcification</span>, or <span class="text-accent">Thrombus</span>?
                     </li>
                 </ul>
             </div>
         </div>
 
+        <!-- [18] Targeted Analysis -->
+        <div class="slide layout-cols layout-targeted">
+            <div class="slide-header reveal r1">
+                <h2>Targeted Analysis</h2>
+            </div>
+            <div class="cols targeted-cols">
+                <div class="col-block targeted-paper-col reveal r2">
+                    <img src="images/19-Targeted.png" alt="Targeted analysis paper" class="targeted-paper-image">
+                    <ul class="fig-bullets targeted-paper-bullets">
+                        <li>121 Variants associated with key mechanisms in AAA.</li>
+                    </ul>
+                </div>
+                <div class="col-block targeted-fig-col reveal r3">
+                    <div class="fig-stack targeted-fig-stack">
+                        <img src="images/20-Targeted.png" alt="Targeted biological mechanisms"
+                            class="fig-image targeted-fig-image">
+                        <p class="fig-caption"><strong>Fig. 10</strong> | <strong>Biological mechanisms.</strong>
+                            Implicated in AAA pathogenesis as described by
+                            <a href="https://www.nature.com/articles/s41588-023-01510-y" target="_blank"
+                                rel="noopener noreferrer">Roychowdhury et al.</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- ╔═══════════════════════════════════╗
-             ║  SECTION 3 — MATERIALS & METHODS    ║
+             ║  SECTION 3 — RESULTS & DISCUSSION  ║
              ╚═══════════════════════════════════╝ -->
 
-        <!-- 3.0 Section divider -->
-        <div class="slide layout-section" data-section-num="03" data-section-label="Materials &amp; Methods">
+        <!-- [19] Section divider -->
+        <div class="slide layout-section" data-section-num="03" data-section-label="RESULTS &amp; DISCUSSION">
             <div class="deco-circle"></div>
-            <div class="section-num reveal r1">03</div>
-            <p class="section-label reveal r2">Materials &amp; Methods</p>
-            <h2 class="section-title reveal r3">
-                Study Design &amp; Analytical Pipeline
-            </h2>
+            <div class="section-heading">
+                <div class="section-num reveal r1">03</div>
+                <h2 class="section-title section-title--long reveal r2">RESULTS &amp; DISCUSSION</h2>
+            </div>
         </div>
 
-        <!-- 3.1 Cohort -->
-        <div class="slide layout-statement">
+        <!-- [20] Study Samples -->
+        <div class="slide layout-study-samples">
             <div class="slide-header reveal r1">
-                <h2>Study Cohort</h2>
+                <h2>Study Samples</h2>
             </div>
-            <p class="statement-text reveal r2">
-                A comprehensively phenotyped cohort from
-                <em>Hospital de la Santa Creu i Sant Pau</em>, with clinical histories,
-                demographics, and matched radiological imaging.
-            </p>
-        </div>
-
-        <!-- 3.2 Genotyping & Imputation -->
-        <div class="slide layout-bigfig" id="slide-parallel-pcs">
-            <div class="slide-header reveal r1">
-                <h2>Genotyping &amp; Imputation Pipeline</h2>
-            </div>
-            <div class="bigfig-box reveal r2">
-                <div class="fig-grid">
-                    <img id="img-parallel-pcs" src="images/parallel-10pcs.svg" style="width:100%;height:100%;"
-                        alt="Imputation Pipeline">
-                </div>
-            </div>
-            <p class="bigfig-caption reveal r3"><strong>Figure 2</strong> | <strong>Imputation Pipeline.</strong>
-                Pre-imputation QC → TOPMed Server → Post-imputation filtering
-                (R² &gt; 0.3, MAF &gt; 0.01)</p>
-        </div>
-
-        <!-- 3.3 Phenotype extraction -->
-        <div class="slide layout-cols">
-            <div class="slide-header reveal r1">
-                <h2>Phenotype Extraction</h2>
-            </div>
-            <div class="cols">
-                <div class="col-block reveal r2">
-                    <div class="col-num">A.</div>
-                    <div class="col-divider"></div>
-                    <h3>Clinical Variables</h3>
-                    <p>Patient demographics, comorbidities, and risk factors systematically compiled from hospital
-                        records.</p>
-                </div>
-                <div class="col-block reveal r3">
-                    <div class="col-num">B.</div>
-                    <div class="col-divider"></div>
-                    <h3>Imaging Variables</h3>
-                    <p>Metrics derived from radiological data capturing AAA severity, growth rate, and morphological
-                        features.</p>
-                </div>
+            <div class="study-samples-figures reveal r2">
+                <figure class="study-samples-fig">
+                    <div class="study-samples-media">
+                        <img src="images/21-Diameter-samples.png"
+                            alt="Diameter cohort distribution by sex and age in healthy individuals and AAA patients"
+                            class="study-samples-image">
+                    </div>
+                    <figcaption class="fig-caption"><strong>Fig. 11</strong> | <strong>Diameter cohort
+                            distribution.</strong> <strong>(A)</strong> Healthy individuals; <strong>N = 352</strong>.
+                        <strong>(B)</strong> AAA patients; <strong>N = 411</strong>.
+                    </figcaption>
+                </figure>
+                <figure class="study-samples-fig">
+                    <div class="study-samples-media">
+                        <img src="images/22-calc-ILT-samples.png"
+                            alt="Calcification volume and ILT volume ratio cohort distribution by sex and age"
+                            class="study-samples-image">
+                    </div>
+                    <figcaption class="fig-caption"><strong>Fig. 12</strong> | <strong>CT phenotypes cohort
+                            distribution.</strong> <strong>(A)</strong> Calcification volume; <strong>N = 254</strong>.
+                        <strong>(B)</strong> Intraluminal thrombus volume ratio; <strong>N = 246</strong>.
+                    </figcaption>
+                </figure>
             </div>
         </div>
 
-        <!-- 3.4 3D CT-Scan processing -->
-        <div class="slide layout-figure">
+        <!-- [21] Diameter Genetics Differ in Healthy vs. AAA Patients -->
+        <div class="slide layout-figure layout-figure--fit layout-diameter-result layout-diameter-result--title-only">
             <div class="fig-side reveal r1">
-                <div class="fig-box">
-                    <div class="fig-grid"></div>
-                    <span class="fig-placeholder">3D Morphological Metrics</span>
+                <div class="fig-media">
+                    <img src="images/23-AAD-CMplot.png"
+                        alt="Circular Manhattan plot of diameter GWAS results for cases, controls, and meta-analysis"
+                        class="fig-image fig-image--natural">
                 </div>
-                <p class="fig-caption"><strong>Figure 3</strong> | <strong>3D Morphological Metrics.</strong> Volume
-                    rendering, surface area, and tortuosity extraction</p>
+                <p class="fig-caption"><strong>Fig. 13</strong> | <strong>Diameter GWAS.</strong> Circular Manhattan
+                    plot
+                    of GWAS results for cases, controls, and meta-analysis (outer to inner rings). Genome-wide (pink)
+                    and
+                    suggestive (dashed blue) significance thresholds are indicated. Blue points mark variants above the
+                    suggestive threshold. SNP density by chromosome appears in the upper-right legend.</p>
             </div>
             <div class="fig-content-side">
                 <div class="slide-header reveal r2">
-                    <h2>3D CT-Scan Processing</h2>
+                    <h2><span class="trait-name">Diameter</span> <em>Genetics</em> <em>differ</em> in healthy vs. AAA
+                        patients</h2>
                 </div>
-                <p class="reveal r3" style="font-size:14px;color:var(--ink-light);line-height:1.9;">
-                    Automated segmentation and computational processing
-                    to derive volume, surface area, and geometric tortuosity
-                    beyond standard 2D diametric measurements.
-                </p>
             </div>
         </div>
 
-        <!-- 3.5 GWAS design -->
-        <div class="slide layout-statement">
-            <div class="slide-header reveal r1">
-                <h2>GWAS Design</h2>
-            </div>
-            <p class="statement-text reveal r2">
-                Linear mixed models accounting for <em>population stratification
-                    and cryptic relatedness</em>, testing both clinical markers
-                and novel 3D phenotypes independently.
-            </p>
-        </div>
-
-        <!-- 3.6 TWAS methodology -->
-        <div class="slide layout-bigfig">
-            <div class="slide-header reveal r1">
-                <h2>Post-GWAS: TWAS Methodology</h2>
-            </div>
-            <div class="bigfig-box reveal r2">
-                <div class="fig-grid"></div>
-                <span class="fig-placeholder">TWAS Workflow Diagram</span>
-            </div>
-            <p class="bigfig-caption reveal r3"><strong>Figure 4</strong> | <strong>TWAS Workflow.</strong> Pre-computed
-                eQTL weights → imputed gene expression →
-                association with vascular phenotypes</p>
-        </div>
-
-
-        <!-- ╔═══════════════════════════════════╗
-             ║  SECTION 4 — RESULTS                ║
-             ╚═══════════════════════════════════╝ -->
-
-        <!-- 4.0 Section divider -->
-        <div class="slide layout-section" data-section-num="04" data-section-label="Results">
-            <div class="deco-circle"></div>
-            <div class="section-num reveal r1">04</div>
-            <p class="section-label reveal r2">Results</p>
-            <h2 class="section-title reveal r3">
-                Key Findings
-            </h2>
-        </div>
-
-        <!-- 4.1 Imputation QC -->
-        <div class="slide layout-bigfig">
-            <div class="slide-header reveal r1">
-                <h2>Imputation Pipeline QC</h2>
-            </div>
-            <div class="bigfig-box reveal r2">
-                <div class="fig-grid"></div>
-                <span class="fig-placeholder">QC Metrics Dashboard</span>
-            </div>
-            <p class="bigfig-caption reveal r3"><strong>Figure 5</strong> | <strong>QC Metrics.</strong> Post-imputation
-                variant yield after R² and MAF filtering</p>
-        </div>
-
-        <!-- 4.2 Cohort description -->
-        <div class="slide layout-figure">
+        <!-- [22] Vascular Cell Integrity — Meta-Analysis -->
+        <div class="slide layout-figure layout-figure--fit layout-diameter-result layout-diameter-result--with-notes">
             <div class="fig-side reveal r1">
-                <div class="fig-box">
-                    <div class="fig-grid"></div>
-                    <span class="fig-placeholder">Cohort Demographics Table</span>
+                <div class="fig-media">
+                    <img src="images/24-AAD-CMplot.png"
+                        alt="Circular Manhattan plot of diameter GWAS meta-analysis highlighting ARAP2"
+                        class="fig-image fig-image--natural">
                 </div>
-                <p class="fig-caption"><strong>Figure 6</strong> | <strong>Cohort Demographics.</strong> Phenotypic
-                    summary of analytical cohort</p>
+                <p class="fig-caption"><strong>Fig. 14</strong> | <strong>Diameter GWAS Meta-Analysis.</strong> Circular
+                    Manhattan plot of meta-analysis results. Pink and dashed blue lines indicate genome-wide and
+                    suggestive significance, respectively. Blue points show variants above the suggestive threshold.
+                    SNP density by chromosome appears in the upper-right legend.</p>
             </div>
             <div class="fig-content-side">
                 <div class="slide-header reveal r2">
-                    <h2>Cohort Description</h2>
+                    <h2><em>Vascular Cell Integrity</em> is important in aortic <span class="trait-name">Diameter</span>
+                    </h2>
                 </div>
-                <p class="reveal r3" style="font-size:14px;color:var(--ink-light);line-height:1.9;">
-                    Well-characterized individuals reflecting typical AAA demographics.
-                    Significant heterogeneity in 3D imaging metrics highlights
-                    the value of fine-grained morphological profiling.
-                </p>
+                <div class="diameter-result-notes reveal r3">
+                    <p class="diameter-result-label">Meta-Analysis:</p>
+                    <p class="diameter-result-text"><em>ARAP2</em> involved in muscle and endothelial cells structure
+                    </p>
+                </div>
             </div>
         </div>
 
-        <!-- 4.3 GWAS Aortic Diameter -->
-        <div class="slide layout-bigfig">
-            <div class="slide-header reveal r1">
-                <h2>GWAS — Aortic Diameter</h2>
-            </div>
-            <div class="bigfig-box reveal r2">
-                <div class="fig-grid"></div>
-                <span class="fig-placeholder">Manhattan Plot — Diameter</span>
-            </div>
-            <p class="bigfig-caption reveal r3"><strong>Figure 7</strong> | <strong>GWAS for Aortic Diameter.</strong>
-                Genome-wide association results for maximum aortic diameter</p>
-        </div>
-
-        <!-- 4.4 GWAS 3D phenotypes -->
-        <div class="slide layout-bigfig">
-            <div class="slide-header reveal r1">
-                <h2>GWAS — 3D Image-Derived Phenotypes</h2>
-            </div>
-            <div class="bigfig-box reveal r2">
-                <div class="fig-grid"></div>
-                <span class="fig-placeholder">Manhattan Plot — 3D Phenotypes</span>
-            </div>
-            <p class="bigfig-caption reveal r3"><strong>Figure 8</strong> | <strong>GWAS for 3D Phenotypes.</strong>
-                Distinct loci identified via 3D morphological features</p>
-        </div>
-
-        <!-- 4.5 TWAS findings -->
-        <div class="slide layout-figure">
+        <!-- [23] Vascular Cell Integrity — Targeted Analysis -->
+        <div class="slide layout-figure layout-figure--fit layout-diameter-result layout-diameter-result--with-notes">
             <div class="fig-side reveal r1">
-                <div class="fig-box">
-                    <div class="fig-grid"></div>
-                    <span class="fig-placeholder">TWAS Results Plot</span>
+                <div class="fig-media">
+                    <img src="images/25-panel_b-diameter.png"
+                        alt="Targeted analysis of diameter gene-level associations at AAA loci"
+                        class="fig-image fig-image--natural">
                 </div>
-                <p class="fig-caption"><strong>Figure 9</strong> | <strong>TWAS Results.</strong> Prioritized genes from
-                    TWAS analysis. we used GTEx data for whole blood and artery aorta to determine</p>
+                <p class="fig-caption"><strong>Fig. 15</strong> | <strong>Targeted analysis of Diameter.</strong>
+                    Gene-level associations at Roychowdhury et al. AAA loci, grouped by biological mechanism. Circles
+                    indicate nominally significant gene–phenotype associations (P&nbsp;&lt;&nbsp;0.05), with color for
+                    phenotype, saturation for association strength, size for effect, and outline style for effect
+                    direction.</p>
             </div>
             <div class="fig-content-side">
                 <div class="slide-header reveal r2">
-                    <h2>TWAS Findings</h2>
+                    <h2><em>Vascular Cell Integrity</em> is important in aortic <span class="trait-name">Diameter</span>
+                    </h2>
                 </div>
-                <p class="reveal r3" style="font-size:14px;color:var(--ink-light);line-height:1.9;">
-                    Genetically predicted expression correlates with AAA 3D phenotypes,
-                    enriching pathways related to extracellular matrix remodeling
-                    and vascular smooth muscle cell function.
-                </p>
+                <div class="diameter-result-notes reveal r3">
+                    <p class="diameter-result-label">Targeted Analysis:</p>
+                    <p class="diameter-result-text"><em>FBN1</em> involved in tissues structural support. Pathogenic
+                        Variants in <em>FBN1</em>:</p>
+                    <ul class="diameter-result-list">
+                        <li>Thoracic Aortic Aneurysm</li>
+                        <li>Aortic Dissection</li>
+                        <li>Causal gene in Marfan Syndrome</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
+        <!-- [24] Aortic Wall Calcification Is a Complex Trait -->
+        <div class="slide layout-calcification-results">
+            <div class="slide-header reveal r1">
+                <h2>Aortic wall <span class="trait-name">Calcification</span> is a <em>Complex Trait</em></h2>
+            </div>
+            <figure class="calcification-fig calcification-fig--heatmap reveal r2">
+                <div class="fig-stack">
+                    <div class="fig-box">
+                        <img src="images/27-panel_a.png"
+                            alt="Number of nominally significant genes by biological mechanism across phenotypes"
+                            class="fig-image">
+                    </div>
+                    <figcaption class="fig-caption"><strong>Fig. 16</strong> | <strong>Number of nominally significant
+                            genes.</strong> Genes with P&nbsp;&lt;&nbsp;0.05 at Roychowdhury et al. AAA loci by
+                        biological
+                        mechanism, shown across AAD status, AAC volume/ratio, and ILT ratio. Color intensity reflects
+                        gene count (0–6).
+                    </figcaption>
+                </div>
+            </figure>
+            <figure class="calcification-fig calcification-fig--panel reveal r3">
+                <div class="fig-stack">
+                    <div class="fig-box">
+                        <img src="images/26-panel_b-calcification.png"
+                            alt="Targeted analysis of calcification gene-level associations at AAA loci"
+                            class="fig-image">
+                    </div>
+                    <figcaption class="fig-caption"><strong>Fig. 17</strong> | <strong>Targeted analysis of
+                            Calcification.</strong> Gene-level associations at Roychowdhury et al. AAA loci, grouped
+                        by
+                        biological mechanism. Circles indicate nominally significant gene–phenotype associations
+                        (P&nbsp;&lt;&nbsp;0.05), with color for phenotype, saturation for association strength, size
+                        for effect, and outline style for effect direction.</figcaption>
+                </div>
+            </figure>
+        </div>
+
+        <!-- [24a] Intraluminal Thrombus GWAS -->
+        <div class="slide layout-thrombus-gwas">
+            <div class="slide-header reveal r1">
+                <h2><em>Blood-cell</em> structure and <em>Environment</em> are relevant to<br>Intraluminal <span
+                        class="trait-name">Thrombus</span></h2>
+            </div>
+            <div class="thrombus-gwas-content">
+                <div class="fig-side reveal r2">
+                    <div class="fig-media">
+                        <img src="images/28-ILT_manhattan.png" alt="GWAS for ILT ratio. Manhattan plot."
+                            class="fig-image fig-image--natural">
+                    </div>
+                    <p class="fig-caption"><strong>Fig. 18</strong> | <strong>GWAS for ILT ratio.</strong> Manhattan
+                        plot. Each point is a variant by chromosomal position and −log<sub>10</sub>(P). Pink line:
+                        genome-wide significance (P=5×10<sup>−8</sup>); blue dashed: suggestive (P=1×10<sup>−5</sup>).
+                        Variants above the suggestive threshold are blue.</p>
+                </div>
+                <div class="notes-side reveal r3">
+                    <div class="diameter-result-notes">
+                        <p class="diameter-result-label">GWAS:</p>
+                        <p class="diameter-result-text"><em>GLRX5</em> involved in iron homeostasis. Pathogenic Variants
+                            in <em>GLRX5</em>:</p>
+                        <ul class="diameter-result-list">
+                            <li>Anemia</li>
+                            <li>Oxidative Stress</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- [24b] Intraluminal Thrombus TWAS -->
+        <div class="slide layout-thrombus-twas">
+            <div class="slide-header reveal r1">
+                <h2><em>Blood-cell</em> structure and <em>Environment</em> are relevant to<br>Intraluminal <span
+                        class="trait-name">Thrombus</span></h2>
+            </div>
+            <div class="thrombus-twas-content">
+                <div class="notes-side reveal r2">
+                    <div class="diameter-result-notes">
+                        <p class="diameter-result-label">Blood TWAS:</p>
+                        <ul class="diameter-result-list">
+                            <li><em>EPB41</em> involved in erythrocyte structure.</li>
+                            <li><em>PGM5</em> involved in erythrocyte junctions.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fig-side reveal r3">
+                    <div class="fig-stack">
+                        <div class="fig-media">
+                            <img src="images/29-ILT_TWAS.png" alt="Whole blood TWAS for ILT ratio."
+                                class="fig-image fig-image--natural">
+                        </div>
+                        <p class="fig-caption"><strong>Fig. 19</strong> | <strong>Whole blood TWAS for ILT
+                                ratio.</strong> Each point is a gene by chromosomal position and Z score.
+                            Pink lines:
+                            transcriptome-wide significance; blue dashed: suggestive. Triangles: genes above suggestive
+                            threshold (upward: larger ILT, downward: smaller ILT). Red labels: genes shared between
+                            tissues.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- ╔═══════════════════════════════════╗
-             ║  SECTION 5 — DISCUSSION             ║
+             ║  SECTION 4 — LIMITATIONS           ║
              ╚═══════════════════════════════════╝ -->
 
-        <!-- 5.0 Section divider -->
-        <div class="slide layout-section" data-section-num="05" data-section-label="Discussion">
+        <!-- [26] Section divider -->
+        <div class="slide layout-section" data-section-num="04" data-section-label="LIMITATIONS">
             <div class="deco-circle"></div>
-            <div class="section-num reveal r1">05</div>
-            <p class="section-label reveal r2">Discussion</p>
-            <h2 class="section-title reveal r3">
-                Interpretation &amp; Context
-            </h2>
+            <div class="section-heading">
+                <div class="section-num reveal r1">04</div>
+                <h2 class="section-title reveal r2">LIMITATIONS</h2>
+            </div>
         </div>
 
-        <!-- 5.1 Interpretation -->
-        <div class="slide layout-cols">
+        <!-- [27] Limitations — Study Design & Cohorts -->
+        <div class="slide layout-bullets layout-limitations-bullets">
             <div class="slide-header reveal r1">
-                <h2>Interpretation of Findings</h2>
-            </div>
-            <div class="cols">
-                <div class="col-block reveal r2">
-                    <div class="col-num">01.</div>
-                    <div class="col-divider"></div>
-                    <h3>GWAS / TWAS Integration</h3>
-                    <p>A systems-level view of AAA pathogenesis, moving beyond simple risk association towards
-                        mechanistic hypotheses.</p>
-                </div>
-                <div class="col-block reveal r3">
-                    <div class="col-num">02.</div>
-                    <div class="col-divider"></div>
-                    <h3>Novelty of Imaging Phenotypes</h3>
-                    <p>3D CT-derived features capture disease complexity that traditional diameter measurements miss
-                        entirely.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 5.2 Literature & Limitations -->
-        <div class="slide layout-cols">
-            <div class="slide-header reveal r1">
-                <h2>Literature &amp; Limitations</h2>
-            </div>
-            <div class="cols">
-                <div class="col-block reveal r2">
-                    <div class="col-num">03.</div>
-                    <div class="col-divider"></div>
-                    <h3>Existing Literature</h3>
-                    <p>Findings align with prior large-scale AAA studies for standard metrics; novel 3D loci address a
-                        recognized gap.</p>
-                </div>
-                <div class="col-block reveal r3">
-                    <div class="col-num">04.</div>
-                    <div class="col-divider"></div>
-                    <h3>Limitations</h3>
-                    <p>Sample size constraints typical for highly phenotyped cohorts. Multi-center replication is
-                        warranted.</p>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- ╔═══════════════════════════════════╗
-             ║  SECTION 6 — CONCLUSIONS            ║
-             ╚═══════════════════════════════════╝ -->
-
-        <!-- 6.0 Section divider -->
-        <div class="slide layout-section" data-section-num="06" data-section-label="Conclusions">
-            <div class="deco-circle"></div>
-            <div class="section-num reveal r1">06</div>
-            <p class="section-label reveal r2">Conclusions</p>
-            <h2 class="section-title reveal r3">
-                Answering the Objectives
-            </h2>
-        </div>
-
-        <!-- 6.1 Conclusions list -->
-        <div class="slide layout-bullets">
-            <div class="slide-header reveal r1">
-                <h2>Key Takeaways</h2>
+                <h2>Limitations</h2>
             </div>
             <div class="content">
                 <ul class="method-list">
                     <li class="reveal r2">
                         <span class="m-num">I</span>
                         <div class="m-text">
-                            <h4>Pipeline Integrity</h4>
-                            <p>A validated high-throughput genotyping and imputation pipeline yielding high-quality
-                                variants.</p>
+                            <h4>Limited statistical power</h4>
+                            <p>Sample size was too small to distinguish noise from true genetic signals among millions
+                                of variants. Findings represent hypothetical associations.</p>
                         </div>
                     </li>
                     <li class="reveal r3">
                         <span class="m-num">II</span>
                         <div class="m-text">
-                            <h4>Phenotypic Superiority</h4>
-                            <p>3D CT-derived variables provide more precise AAA severity representation than clinical
-                                measurements alone.</p>
+                            <h4>Limited generalizability</h4>
+                            <p>Cohorts were mostly European males. Results may not apply to all AAA patients.</p>
                         </div>
                     </li>
                     <li class="reveal r4">
                         <span class="m-num">III</span>
                         <div class="m-text">
-                            <h4>Genetic Architecture</h4>
-                            <p>3D phenotype GWAS uncovered distinct, uncharacterized loci for aneurysm morphology.</p>
-                        </div>
-                    </li>
-                    <li class="reveal r5">
-                        <span class="m-num">IV</span>
-                        <div class="m-text">
-                            <h4>Functional Mapping</h4>
-                            <p>TWAS prioritized biologically plausible target genes driving AAA pathology.</p>
+                            <h4>Potential artifacts</h4>
+                            <p>The phenotype-extraction model struggled with difficult CT images, misclassifying
+                                similar-appearing lumen and thrombus. More training is needed for edge cases.</p>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
 
+        <!-- [28] Limitations — Phenotype Extraction Model -->
+        <div class="slide layout-limitations-model">
+            <div class="limitations-model-content">
+                <div class="limitations-title-side reveal r1">
+                    <span class="m-num">III</span>
+                    <h2 class="limitations-item-title">Potential artifacts</h2>
+                </div>
+                <div class="limitations-fig-side reveal r2">
+                    <div class="fig-stack limitations-fig-stack">
+                        <div class="limitations-images">
+                            <img src="images/31-Limitation-model.png" class="reveal-step limitation-model-img"
+                                data-step="2" alt="Thrombus model segmentation limitation edge cases">
+                            <img src="images/30-Limitation-model.png" class="reveal-step limitation-model-img"
+                                data-step="1" alt="Thrombus model segmentation limitation initial">
+                        </div>
+                        <p class="fig-caption"><strong>Fig. 20</strong> | <strong>Model segmentation artifact.</strong>
+                            <strong>(A)</strong> Contrast CT: accurate lumen and thrombus segmentation.
+                            <strong>(B)</strong> Non-contrast CT: lumen misclassified as thrombus.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- ╔═══════════════════════════════════╗
-             ║  BIBLIOGRAPHY                       ║
+             ║  SECTION 5 — CONCLUSIONS           ║
              ╚═══════════════════════════════════╝ -->
 
-        <div class="slide layout-section" data-section-num="Ref" data-section-label="Bibliography">
+        <!-- [29] Section divider -->
+        <div class="slide layout-section" data-section-num="05" data-section-label="CONCLUSIONS">
             <div class="deco-circle"></div>
-            <div class="section-num reveal r1">Ref</div>
-            <p class="section-label reveal r2">Sources</p>
-            <h2 class="section-title reveal r3">
-                Bibliography
-            </h2>
+            <div class="section-heading">
+                <div class="section-num reveal r1">05</div>
+                <h2 class="section-title reveal r2">CONCLUSIONS</h2>
+            </div>
         </div>
 
-        <div class="slide">
+        <!-- [30] Take Home Messages -->
+        <div class="slide layout-bullets layout-conclusions">
             <div class="slide-header reveal r1">
-                <h2>Selected Bibliography</h2>
+                <h2>Take Home Messages</h2>
             </div>
-            <ul class="ref-list">
-                <li class="reveal r2" data-num="1.">
-                    <em>Wanhainen A, et al.</em> (2019). ESVS Clinical Practice Guidelines on the Management of
-                    Abdominal Aorto-iliac Artery Aneurysms.
-                </li>
-                <li class="reveal r3" data-num="2.">
-                    <em>Klarin D, et al.</em> (2020). Genome-wide association study of abdominal aortic aneurysm
-                    identifies novel loci.
-                </li>
-                <li class="reveal r4" data-num="3.">
-                    <em>Gamazon ER, et al.</em> (2015). A gene-based association method for mapping traits using
-                    reference transcriptome data.
-                </li>
-                <li class="reveal r5" data-num="4.">
-                    <em>Tardif JC, et al.</em> (2021). Advanced 3D computational methods for phenotypic profiling of
-                    vascular anomalies.
-                </li>
-            </ul>
+            <div class="content">
+                <ul class="method-list">
+                    <li class="reveal r2">
+                        <span class="m-num">I</span>
+                        <div class="m-text">
+                            <h4>Initial Genetic Map</h4>
+                            <p>First map of genetic signals linked to disease-specific traits in AAA patients.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <figure class="conclusions-hypothesis reveal r3">
+                    <figcaption class="conclusions-hypothesis-label">Hypothesis</figcaption>
+                    <blockquote class="quote-text quote-text--compact">
+                        Disease-specific traits have distinct genetic architectures that differ from those affecting
+                        normal aortic size,<br>and each trait may involve different biological mechanisms related to the
+                        disease.
+                    </blockquote>
+                </figure>
+
+                <ul class="method-list method-list--continued">
+                    <li class="reveal r4">
+                        <span class="m-num">II</span>
+                        <div class="m-text">
+                            <h4>Distinct Mechanisms</h4>
+                            <p>Mechanisms in healthy individuals differ from those after disease onset.</p>
+                        </div>
+                    </li>
+                    <li class="reveal r5">
+                        <span class="m-num">III</span>
+                        <div class="m-text">
+                            <h4>Trait-Specific Biology</h4>
+                            <p>Each disease trait is driven by distinct biological pathways:</p>
+                            <ul class="conclusions-sublist">
+                                <li>• Diameter: Vascular cell integrity</li>
+                                <li>• Calcification: Inflammatory, vascular, and lipid metabolism</li>
+                                <li>• Thrombus: Blood-cell organization and oxidative stress</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <!-- ╔═══════════════════════════════════╗
-             ║  CLOSING SLIDE                    ║
+             ║  SECTION 6 — FUTURE                ║
+             ╚═══════════════════════════════════╝ -->
+
+        <!-- [31] Section divider -->
+        <div class="slide layout-section" data-section-num="06" data-section-label="FUTURE">
+            <div class="deco-circle"></div>
+            <div class="section-heading">
+                <div class="section-num reveal r1">06</div>
+                <h2 class="section-title reveal r2">FUTURE</h2>
+            </div>
+        </div>
+
+        <!-- [32] Future Work — Consortium & Clinical Images -->
+        <div class="slide layout-cols layout-future-work">
+            <div class="cols future-cols">
+                <!-- Left Column -->
+                <div class="col-block future-text-col">
+                    <div class="future-section-group reveal r1">
+                        <h3>Consortium Meta-Analysis</h3>
+                        <ul class="fig-bullets future-bullets">
+                            <li>Replicate</li>
+                            <li>Refute</li>
+                        </ul>
+                    </div>
+
+                    <div class="future-aaagen-block reveal r2">
+                        <div class="future-aaagen-text">AAAgen</div>
+                    </div>
+
+                    <div class="future-section-group reveal r3">
+                        <h3>Value of Clinical Images</h3>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="col-block future-fig-col reveal-step" data-step="2">
+                    <img src="images/32-plumber.png" alt="Clinical images value" class="future-fig-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- ╔═══════════════════════════════════╗
+             ║  [33] CLOSING SLIDE                ║
              ╚═══════════════════════════════════╝ -->
         <div class="slide layout-title layout-closing">
-            <div class="hero-bg-alt reveal r1"></div>
 
             <div class="title-content">
-                <h1 class="title-main reveal r2" style="font-size: clamp(30px, 5vw, 55px); margin-bottom: 3rem;">
+                <h1 class="title-main reveal r2" style="font-size: clamp(35px, 5vw, 60px); margin-bottom: 3rem;">
                     Multi-Omics <em>Characterization of<br>
                         Abdominal Aortic Aneurysm</em><br>
                     via 3D Image-Derived Phenotypes
@@ -580,9 +879,9 @@
                     <p>Muhammad Umer Hussain Kousar</p>
                 </div>
 
-                <div class="logos-wrapper reveal r4">
-                    <img src="images/Logo_uab.png" alt="UAB Logo" class="inst-logo">
-                    <img src="images/Logo_IRSP.png" alt="IRSP Logo" class="inst-logo">
+                <div class="logos-wrapper reveal r4" style="transform: translateX(1rem);">
+                    <img src="images/Logo_uab.png" alt="UAB Logo" class="title-uab-logo">
+                    <img src="images/Logo_IRSP.png" alt="IRSP Logo" class="title-irsp-logo">
                 </div>
             </div>
         </div>

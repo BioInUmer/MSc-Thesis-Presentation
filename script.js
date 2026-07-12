@@ -31,6 +31,15 @@ function inlineSVGs() {
 
 document.addEventListener('DOMContentLoaded', inlineSVGs);
 
+function initExternalLinks() {
+    document.querySelectorAll('.deck a[href]').forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#')) return;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+    });
+}
+
 const slides = document.querySelectorAll('.slide');
 const progressBar = document.getElementById('progress-bar');
 const slideCounter = document.getElementById('slide-counter');
@@ -40,6 +49,7 @@ const banSep = document.getElementById('ban-sep');
 const banLabel = document.getElementById('ban-label');
 
 let current = 0;
+let revealStep = 0;
 let flyTimeout = null;
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -218,7 +228,7 @@ function updateBanner(fromDivider) {
     // Update content
     banNum.textContent = num;
     banLabel.textContent = label;
-    banSep.style.display = 'inline';
+    // Separator is hidden via CSS
 
     if (flyTimeout) clearTimeout(flyTimeout);
 
@@ -234,6 +244,118 @@ function updateBanner(fromDivider) {
     }
 }
 
+// ── Sequential reveal steps (pipe analogy slides) ─────
+function getMaxRevealSteps(slide) {
+    const steps = [...slide.querySelectorAll('[data-step]')].map(el => parseInt(el.dataset.step, 10));
+    return steps.length ? Math.max(...steps) : 0;
+}
+
+function applyRevealSteps(slide, step, instant = false) {
+    slide.querySelectorAll('.reveal-step').forEach(el => {
+        const s = parseInt(el.dataset.step, 10);
+        const show = s <= step;
+        el.classList.toggle('revealed', show);
+        if (instant) {
+            el.classList.toggle('no-anim', show);
+        }
+    });
+
+    if (instant) {
+        requestAnimationFrame(() => {
+            slide.querySelectorAll('.reveal-step.no-anim').forEach(el => el.classList.remove('no-anim'));
+        });
+    }
+}
+
+function resetRevealSteps(slide) {
+    slide.querySelectorAll('.reveal-step').forEach(el => {
+        el.classList.remove('revealed', 'no-anim');
+    });
+}
+
+function prepareSlideEntry(slide, direction) {
+    const maxSteps = getMaxRevealSteps(slide);
+    resetRevealSteps(slide);
+
+    if (maxSteps === 0) {
+        revealStep = 0;
+        return;
+    }
+
+    revealStep = direction < 0 ? maxSteps : 1;
+    applyRevealSteps(slide, revealStep, true);
+}
+
+function finalizeSlideExit(slide, delay = 0) {
+    if (delay) {
+        setTimeout(() => resetRevealSteps(slide), delay);
+        return;
+    }
+    resetRevealSteps(slide);
+}
+
+function isPipePairSlide(slide) {
+    return slide.classList.contains('layout-pipe-pair');
+}
+
+const PIPE_CROSSFADE_MS = prefersReducedMotion ? 0 : 380;
+
+function usesCrossfadeTransition(exited, entering) {
+    return isPipePairSlide(exited) || isPipePairSlide(entering);
+}
+
+function preloadSlideImages(slide) {
+    if (!slide) return;
+    slide.querySelectorAll('img[src]').forEach(img => {
+        const src = img.getAttribute('src');
+        if (!src) return;
+        const probe = new Image();
+        probe.decoding = 'async';
+        probe.src = src;
+    });
+}
+
+function preloadAdjacentPipeImages(idx) {
+    if (!isPipePairSlide(slides[idx])) return;
+    preloadSlideImages(slides[idx + 1]);
+    preloadSlideImages(slides[idx - 1]);
+}
+
+function preloadNearbyPipeImages(idx) {
+    preloadAdjacentPipeImages(idx);
+
+    for (let offset = 1; offset <= 2; offset++) {
+        const target = slides[idx + offset];
+        if (target && isPipePairSlide(target) && !isPipePairSlide(slides[idx])) {
+            preloadSlideImages(target);
+        }
+    }
+}
+
+function preloadNearbyImages(idx) {
+    preloadNearbyPipeImages(idx);
+    preloadSlideImages(slides[idx + 1]);
+    preloadSlideImages(slides[idx - 1]);
+}
+
+function runCrossfadeTransition(exitedSlide, enteringSlide) {
+    exitedSlide.classList.remove('active');
+    exitedSlide.classList.add('exit-crossfade');
+
+    enteringSlide.classList.add('enter-crossfade', 'active');
+
+    // Force reflow so both slides register their start opacities before crossfading.
+    void enteringSlide.offsetHeight;
+
+    exitedSlide.classList.add('crossfade-fading');
+    enteringSlide.classList.remove('enter-crossfade');
+
+    setTimeout(() => {
+        exitedSlide.classList.remove('exit-crossfade', 'crossfade-fading');
+        resetRevealSteps(exitedSlide);
+    }, PIPE_CROSSFADE_MS + 40);
+}
+
 // ── Navigation ────────────────────────────────────────
 function goTo(n, direction) {
     if (n === current) return;
@@ -242,12 +364,25 @@ function goTo(n, direction) {
         || slides[current].classList.contains('layout-title');
 
     const exitedSlide = slides[current];
-    exitedSlide.classList.remove('active');
-    exitedSlide.classList.add('exit');
-    setTimeout(() => exitedSlide.classList.remove('exit'), 500);
+    const enteringSlide = slides[n];
+    const crossfade = usesCrossfadeTransition(exitedSlide, enteringSlide);
 
     current = n;
-    slides[current].classList.add('active');
+
+    prepareSlideEntry(enteringSlide, direction || 1);
+
+    if (crossfade) {
+        runCrossfadeTransition(exitedSlide, enteringSlide);
+    } else {
+        exitedSlide.classList.remove('active');
+        finalizeSlideExit(exitedSlide);
+        exitedSlide.classList.add('exit');
+        setTimeout(() => exitedSlide.classList.remove('exit', 'exit-crossfade'), 500);
+
+        enteringSlide.classList.add('active');
+    }
+
+    preloadNearbyImages(current);
 
     // Keep URL in sync
     history.replaceState(null, null, `#${current}`);
@@ -260,6 +395,21 @@ function goTo(n, direction) {
 }
 
 function navigate(dir) {
+    const slide = slides[current];
+    const maxSteps = getMaxRevealSteps(slide);
+
+    if (dir > 0 && revealStep < maxSteps) {
+        revealStep++;
+        applyRevealSteps(slide, revealStep);
+        return;
+    }
+
+    if (dir < 0 && revealStep > 1) {
+        revealStep--;
+        applyRevealSteps(slide, revealStep);
+        return;
+    }
+
     const next = current + dir;
     if (next >= 0 && next < slides.length) goTo(next, dir);
 }
@@ -395,11 +545,16 @@ const initialHash = parseInt(window.location.hash.replace('#', ''), 10);
 if (!isNaN(initialHash) && initialHash >= 0 && initialHash < slides.length) {
     slides[0].classList.remove('active');
     current = initialHash;
+    prepareSlideEntry(slides[current], 1);
     slides[current].classList.add('active');
 } else {
-    // Set initial URL hash to 0 if none exists
     history.replaceState(null, null, '#0');
+    prepareSlideEntry(slides[current], 1);
 }
 
 updateProgress();
 updateBanner(false);
+preloadNearbyImages(current);
+initExternalLinks();
+
+
